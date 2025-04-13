@@ -1,0 +1,98 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Layout */
+.layout-container {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #dfe1e2 ; /* bg-gray-50 */
+}
+.title-page {
+  @apply text-3xl font-bold text-[#b17a56] mb-6;
+}
+
+/* Common form styles */
+.form-container {
+  @apply bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg border border-[#dfe1e2];
+  @apply mx-auto my-8;
+  @apply transform transition-transform duration-300 hover:scale-[1.01];
+}
+
+.form-title {
+  @apply text-3xl font-bold text-center text-[#b17a56] mb-6; /* Dark blue-gray */
+}
+
+.form-label {
+  @apply block text-sm font-medium text-[#6e4c34] mb-1; /* Brown text */
+}
+
+.form-input {
+  @apply w-full px-4 py-2 mt-1 border border-[#d4b9a1] rounded-lg 
+         focus:ring-2 focus:ring-[#2563EB] focus:border-[#3B82F6] 
+         outline-none transition-all;
+}
+
+.form-select {
+  @apply w-full px-4 py-2 mt-1 border border-[#d4b9a1] rounded-lg 
+         focus:ring-2 focus:ring-[#2563EB] focus:border-[#3B82F6] 
+         outline-none transition-all;
+}
+.form-button {
+  @apply w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-4 rounded-lg 
+         hover:from-blue-600 hover:to-blue-700 
+         focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 
+         transition-all duration-300 
+         disabled:bg-gray-400 disabled:cursor-not-allowed;
+}
+
+.back-button {
+  @apply mb-5 flex items-center text-[#b17a56] hover:text-[#b17b59] 
+         transition font-medium text-lg;
+}
+
+.error-message {
+  @apply text-red-600 mb-4 bg-red-50 p-3 rounded-lg flex items-center;
+}
+
+.success-message {
+  @apply text-green-600 mb-4 bg-green-50 p-3 rounded-lg flex items-center;
+}
+
+.form-row {
+  @apply mb-4 w-full;
+}
+
+/* Optional: Add some brown accents to match the table */
+.form-header {
+  @apply bg-[#f8f1ea] p-4 rounded-t-lg border-b border-[#d4b9a1]; /* Light brown bg */
+}
+
+.form-footer {
+  @apply bg-[#f8f1ea] p-4 rounded-b-lg border-t border-[#d4b9a1]; /* Light brown bg */
+}
+@media (max-width: 1023px) { /* lg breakpoint */
+  .sidebar {
+    display: none;
+  }
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content-main {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  position: relative;
+}
+
+
+
