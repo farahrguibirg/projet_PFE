@@ -10,39 +10,6 @@ const jwt = require('jsonwebtoken');
 
 
 class SujetController {
- /* // Ajouter un sujet
-  static async addSujet(req, res) {
-    const { titre, idEncadrant ,isAdmin } = req.body;
-
-    if (!titre || !idEncadrant) {
-      return res.status(400).json({ message: "Tous les champs sont requis." });
-    }
-
-    try {
-      const encadrantExists = await EncadrantRepository.getEncadrantById(idEncadrant);
-      if (!encadrantExists) {
-        return res.status(404).json({ message: "Encadrant non trouvé." });
-      }
-
-
-       // Déterminez le statut en fonction de isAdmin
-    const status = isAdmin ? 'approved' : 'pending';
-
-    console.log('isAdmin value:', isAdmin); 
-      const sujetData = { 
-        titre, 
-        idEncadrant,
-        status,
-      };
-      
-      const sujet = await SujetRepository.addSujet(sujetData);
-      return res.status(201).json({ success: "Sujet proposé avec succès", sujet });
-    } catch (error) {
-      console.error("Erreur lors de l'ajout du sujet:", error);
-      return res.status(500).json({ message: "Erreur serveur : " + error.message });
-    }
-  }*/
-
     static async addSujet(req, res) {
       // 1. Vérifiez d'abord le token pour déterminer si c'est un admin
       const token = req.headers.authorization?.split(' ')[1];
