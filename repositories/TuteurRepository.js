@@ -43,62 +43,6 @@ class TuteurRepository {
     const groupe = await Groupe.findOne({ where: { idTuteur: tuteurId } });
     return !!groupe;
   }
-/*
-
-  async getTuteurByUserId(user_id) {
-    try {
-      // Récupérer le tuteur avec son groupe, les étudiants du groupe et le sujet associé
-      const tuteur = await Tuteur.findOne({
-        where: { idTuteur: user_id },
-        include: [
-          {
-            model: Groupe,
-            as: 'groupe',
-            include: [
-              {
-                model: Etudiant,
-                as: 'etudiants'
-              },
-              {
-                model: Sujet,
-                as: 'sujet'
-              }
-            ]
-          }
-        ]
-      });
-  
-      if (!tuteur) {
-        throw new Error("Tuteur non trouvé");
-      }
-  
-      // Formater les résultats pour correspondre à la structure attendue
-      const tuteurDetails = {
-        idTuteur: tuteur.idTuteur,
-        nom: tuteur.nom,
-        prenom: tuteur.prenom,
-        email: tuteur.email,
-        groupe: tuteur.groupe ? {
-          idGroupe: tuteur.groupe.idGroupe,
-          nomGroupe: tuteur.groupe.nomGroupe,
-          sujet: tuteur.groupe.sujet ? {
-            idSujet: tuteur.groupe.sujet.idSujet,
-            titre: tuteur.groupe.sujet.titre
-          } : null,
-          etudiants: (tuteur.groupe.etudiants || []).map(etudiant => ({
-            idEtudiant: etudiant.idEtudiant,
-            nom: etudiant.nom,
-            prenom: etudiant.prenom
-          }))
-        } : null
-      };
-  
-      return tuteurDetails;
-    } catch (error) {
-      console.error("Erreur lors de la récupération des informations du tuteur:", error);
-      throw new Error(`Erreur lors de la récupération des informations du tuteur: ${error.message}`);
-    }
-  }*/
     async getTuteurByUserId(user_id) {
       try {
         // Requête SQL pour récupérer les informations du tuteur, du groupe, des étudiants et du sujet
